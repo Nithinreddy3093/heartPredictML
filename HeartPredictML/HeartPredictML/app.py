@@ -189,7 +189,7 @@ elif page == "Data Exploration":
         data_disease = data[data['target'] == 1][selected_feature]
         
         bp = ax.boxplot([data_no_disease, data_disease], 
-                       labels=['No Heart Disease', 'Heart Disease'],
+                       tick_labels=['No Heart Disease', 'Heart Disease'],
                        patch_artist=True)
         bp['boxes'][0].set_facecolor('#2ecc71')
         bp['boxes'][1].set_facecolor('#e74c3c')
