@@ -272,7 +272,7 @@ elif page == "Model Training":
         importance_df = predictor.get_feature_importance(model_choice)
         if importance_df is not None:
             fig, ax = plt.subplots(figsize=(8, 6))
-            colors_gradient = plt.cm.get_cmap('RdYlGn')(np.linspace(0.2, 0.8, len(importance_df)))[::-1]
+            colors_gradient = plt.get_cmap('RdYlGn')(np.linspace(0.2, 0.8, len(importance_df)))[::-1]
             ax.barh(importance_df['Feature'], importance_df['Importance'], color=colors_gradient)
             ax.set_xlabel('Importance')
             ax.set_title(f'{model_choice} - Feature Importance')
@@ -781,7 +781,7 @@ elif page == "Model Comparison":
         importance_lr = predictor.get_feature_importance("Logistic Regression")
         if importance_lr is not None:
             fig, ax = plt.subplots(figsize=(8, 6))
-            colors_blue = plt.cm.get_cmap('Blues')(np.linspace(0.3, 0.9, len(importance_lr)))[::-1]
+            colors_blue = plt.get_cmap('Blues')(np.linspace(0.3, 0.9, len(importance_lr)))[::-1]
             ax.barh(importance_lr['Feature'], importance_lr['Importance'], color=colors_blue)
             ax.set_xlabel('Importance (Absolute Coefficient)')
             ax.invert_yaxis()
@@ -793,7 +793,7 @@ elif page == "Model Comparison":
         importance_rf = predictor.get_feature_importance("Random Forest")
         if importance_rf is not None:
             fig, ax = plt.subplots(figsize=(8, 6))
-            colors_green = plt.cm.get_cmap('Greens')(np.linspace(0.3, 0.9, len(importance_rf)))[::-1]
+            colors_green = plt.get_cmap('Greens')(np.linspace(0.3, 0.9, len(importance_rf)))[::-1]
             ax.barh(importance_rf['Feature'], importance_rf['Importance'], color=colors_green)
             ax.set_xlabel('Importance (Gini Importance)')
             ax.invert_yaxis()
